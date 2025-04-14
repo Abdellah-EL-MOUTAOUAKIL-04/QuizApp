@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".RegisterActivity"
     android:background="@drawable/appbg"
     >
 
@@ -53,6 +53,19 @@
             >
         </EditText>
 
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:drawableLeft="@android:drawable/ic_secure"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:drawablePadding="5dp"
+            >
+        </EditText>
+
         <Button
             android:id="@+id/signInButton"
             android:layout_width="match_parent"
@@ -65,13 +78,13 @@
             android:id="@+id/textViewRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/to_register_click_here"
+            android:text="@string/to_login_click_here"
             android:textSize="20dp"
             android:layout_margin="30dp"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            android:onClick="navigateToRegister"
+            android:onClick="navigateToLogin"
             />
     </LinearLayout>
 

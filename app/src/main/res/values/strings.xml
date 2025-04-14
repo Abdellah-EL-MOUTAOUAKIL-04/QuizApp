@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="to_register_click_here">To register click here</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="to_login_click_here">To login click here</string>
+    <string name="question_question_question_question_question">Question Question Question Question Question ?</string>
+    <string name="next">Next</string>
+    <string name="q1">question 1</string>
+    <string name="q2">question 2</string>
+    <string name="q3">question 3</string>
+    <string name="q5">Question 5</string>
+    <string name="q4">Question 4</string>
 </resources>
