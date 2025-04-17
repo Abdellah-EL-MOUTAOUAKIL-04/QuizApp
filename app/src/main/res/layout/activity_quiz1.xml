@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/colorPrimary3"
-            android:text="radioButton"
+            android:text="radioButton2"
             android:textSize="20sp"/>
 
         <RadioButton
@@ -72,12 +72,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/colorPrimary3"
-            android:text="radioButton"
+            android:text="radioButton3"
             android:textSize="20sp"/>
 
     </RadioGroup>
         <Button
-            android:id="@+id/nextBtn"
+            android:id="@+id/bNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

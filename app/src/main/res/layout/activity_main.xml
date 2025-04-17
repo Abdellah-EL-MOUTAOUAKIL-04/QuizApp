@@ -54,7 +54,7 @@
         </EditText>
 
         <Button
-            android:id="@+id/signInButton"
+            android:id="@+id/bLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sign_in"
@@ -71,7 +71,6 @@
             android:layout_gravity="center"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            android:onClick="navigateToRegister"
             />
     </LinearLayout>
 
