@@ -34,14 +34,16 @@ public class MainActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(etEmail.getText().toString().equals("abde") &&
+                /*if(etEmail.getText().toString().equals("abde") &&
                 etPassword.getText().toString().equals("2025")
                 ){
                     Intent i1=new Intent(MainActivity.this, Quiz1.class);
                     startActivity(i1);
                 }else{
                     Toast.makeText(getApplicationContext(),"Login or password incorrect",Toast.LENGTH_SHORT).show();
-                }
+                }*/
+                Intent i1=new Intent(MainActivity.this, Quiz1.class);
+                startActivity(i1);
             }
         });
         tvRegister.setOnClickListener(new View.OnClickListener() {

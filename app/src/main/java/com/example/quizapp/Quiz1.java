@@ -31,6 +31,32 @@ public class Quiz1 extends AppCompatActivity {
         bNext=findViewById(R.id.bNext);
         rg=findViewById(R.id.rg);
 
+        //adding icon for the checked radio button
+        RadioGroup rg = findViewById(R.id.rg);
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                    View child = radioGroup.getChildAt(i);
+                    if (child instanceof RadioButton) {
+                        RadioButton radioButton = (RadioButton) child;
+
+                        if (radioButton.getId() == checkedId) {
+                            // Checked: change border & icon
+                            radioButton.setBackgroundResource(R.drawable.rounded_button_checked);
+                            radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_checked_fixed, 0);
+                        } else {
+                            // Unchecked: revert
+                            radioButton.setBackgroundResource(R.drawable.rounded_radio_button);
+                            radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                        }
+                    }
+                }
+            }
+        });
+
+
         bNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
