@@ -2,7 +2,7 @@
     <string name="app_name">QuizApp</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_in">Sign in</string>
+    <string name="login">Login</string>
     <string name="to_register_click_here">To register click here</string>
     <string name="confirm_password">Confirm password</string>
     <string name="to_login_click_here">To login click here</string>
@@ -13,4 +13,9 @@
     <string name="q3">question 3</string>
     <string name="q5">Question 5</string>
     <string name="q4">Question 4</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_an_account">\ Create an account.</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">"Already have an account? "</string>
+    <string name="question_1_5">Question 1/5</string>
 </resources>

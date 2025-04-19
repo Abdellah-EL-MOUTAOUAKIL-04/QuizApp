@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--l'essentiel d'avoir color primary primary accent et primaqyr dark-->
-    <color name="colorPrimary">#055592</color>
-    <color name="colorPrimary2">#CDC0A5</color>
-    <color name="colorPrimary3">#41AEBC</color>
-    <color name="colorPrimaryDark">#0C976C</color>
-    <color name="colorPrimaryDark2">#38BC93</color>
-    <color name="colorAccent">#E1F1F0</color>
-    <color name="colorAccent2">#E1F1F0</color>
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#0077B6</color>         <!-- Deep Ocean Blue -->
+    <color name="colorPrimary2">#90E0EF</color>        <!-- Light Aqua Blue -->
+    <color name="colorPrimary3">#00B4D8</color>        <!-- Vivid Cyan -->
+
+    <!-- Dark Primary Variant -->
+    <color name="colorPrimaryDark">#023E8A</color>     <!-- Navy Blue -->
+    <color name="colorPrimaryDark2">#0077B6</color>    <!-- Match with Primary -->
+
+    <!-- Accent Colors -->
+    <color name="colorAccent">#FFB703</color>          <!-- Warm Golden Yellow -->
+    <color name="colorAccent2">#FB8500</color>         <!-- Warm Orange -->
+
+    <!-- Neutrals -->
     <color name="white">#FFFFFF</color>
-    <color name="colorbluegrey">#70989E</color>
+    <color name="gray">#F2F2F2</color>
+    <color name="darkGray">#6c757d</color>
+    <color name="gray_300">#d1d5db</color>
+    <color name="gray_400">#9ca3af</color>
+    <color name="gray_950">#030712</color>
+    <color name="lightGray">#f8fafc</color>
+
+    <!--bleu-->
+    <color name="colorbluegrey">#8D99AE</color>
+    <color name="lightBlue">#edfafd</color>
+    <color name="blue_950">#172554</color>
 </resources>
