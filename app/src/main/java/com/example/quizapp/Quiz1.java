@@ -70,7 +70,6 @@ public class Quiz1 extends AppCompatActivity {
                     Intent i1=new Intent(Quiz1.this, Quiz2.class);
                     i1.putExtra("score",score);
                     startActivity(i1);
-
                     overridePendingTransition(R.anim.exit,R.anim.entry);
                     finish();
                 }

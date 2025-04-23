@@ -25,7 +25,7 @@ public class Quiz2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_quiz2);
 
         bNext=findViewById(R.id.bNext);

@@ -27,6 +27,7 @@
         android:textColor="@color/colorPrimary"
         />
     <TextView
+        android:id="@+id/tvScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="60%"
@@ -49,7 +50,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/bLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,7 +59,7 @@
             android:text="Logout" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bTry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
