@@ -20,4 +20,5 @@
     <string name="question_4">Question 4</string>
     <string name="question_5">Question 5</string>
     <string name="_5">\ of 5</string>
+    <string name="votre_score_est">Votre score est</string>
 </resources>

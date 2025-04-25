@@ -14,8 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Quiz5 extends AppCompatActivity {
+import com.example.quizapp.utils.RadioGroupUtils;
 
+public class Quiz extends AppCompatActivity {
     Button bNext;
     RadioGroup rg;
     RadioButton rb;
@@ -26,10 +27,14 @@ public class Quiz5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_quiz5);
+        setContentView(R.layout.activity_quiz);
+
 
         bNext=findViewById(R.id.bNext);
         rg=findViewById(R.id.rg);
+
+        RadioGroupUtils.setupCustomRadioGroup(rg);
+
 
         bNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,13 +43,14 @@ public class Quiz5 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Veuillez choisir une reponse svp",Toast.LENGTH_SHORT).show();
                 }else{
                     rb=findViewById(rg.getCheckedRadioButtonId());
-                    score=getIntent().getIntExtra("score",0);
                     if(rb.getText().toString().equals(correctResp)){
                         score+=1;
                     }
-                    Intent i1=new Intent(Quiz5.this, Score.class);
+                    Intent i1=new Intent(Quiz.this, Score.class);
                     i1.putExtra("score",score);
                     startActivity(i1);
+                    overridePendingTransition(R.anim.exit,R.anim.entry);
+                    finish();
                 }
             }
         });

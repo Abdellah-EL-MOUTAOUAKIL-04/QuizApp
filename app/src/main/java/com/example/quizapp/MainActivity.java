@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
     Button bLogin;
+    TextView tvRegister;
     FirebaseAuth myAuth;
 
     @Override
@@ -33,13 +35,23 @@ public class MainActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.email);
         etPassword = findViewById(R.id.password);
         bLogin = findViewById(R.id.bLogin);
+        tvRegister=findViewById(R.id.textViewRegister);
 
         myAuth = FirebaseAuth.getInstance();
+
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+            }
+        });
 
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = etEmail.getText().toString().trim();
+                startActivity(new Intent(MainActivity.this, Quiz.class));
+
+                /*String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
@@ -47,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                loginUser(email, password);
+                loginUser(email, password);*/
             }
         });
     }
@@ -59,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(MainActivity.this, Quiz1.class));
+                            startActivity(new Intent(MainActivity.this, Quiz.class));
+                            overridePendingTransition(R.anim.exit,R.anim.entry);
                             finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "Login failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();

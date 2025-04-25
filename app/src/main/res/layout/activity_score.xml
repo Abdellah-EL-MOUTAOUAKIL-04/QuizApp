@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/lightGray"
     tools:context=".Score">
 <de.hdodenhof.circleimageview.CircleImageView
     android:layout_width="200dp"
@@ -19,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Votre score est"
+        android:text="@string/votre_score_est"
         android:gravity="center"
         android:textStyle="bold"
         android:layout_marginTop="20dp"

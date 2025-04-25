@@ -40,6 +40,7 @@ public class Score extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Merci pour votre participation",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Score.this,MainActivity.class));
+                overridePendingTransition(R.anim.exit,R.anim.entry);
                 finish();
             }
         });
@@ -47,7 +48,7 @@ public class Score extends AppCompatActivity {
         TryAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Score.this, Quiz1.class));
+                startActivity(new Intent(Score.this, Quiz.class));
             }
         });
     }

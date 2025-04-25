@@ -82,7 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(RegisterActivity.this, Quiz1.class));
+                            startActivity(new Intent(RegisterActivity.this, Quiz.class));
+                            overridePendingTransition(R.anim.exit,R.anim.entry);
                             finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "Sign up failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();

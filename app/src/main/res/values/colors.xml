@@ -3,7 +3,7 @@
     <!-- Primary Colors -->
     <color name="colorPrimary">#0077B6</color>         <!-- Deep Ocean Blue -->
     <color name="colorPrimary2">#90E0EF</color>        <!-- Light Aqua Blue -->
-    <color name="colorPrimary3">#00B4D8</color>        <!-- Vivid Cyan -->
+    <color name="colorPrimary3">#dbeafe</color>        <!-- Vivid Cyan -->
 
     <!-- Dark Primary Variant -->
     <color name="colorPrimaryDark">#023E8A</color>     <!-- Navy Blue -->
