@@ -28,4 +28,11 @@
     <color name="lightBlue">#edfafd</color>
     <color name="blue_950">#172554</color>
     <color name="slate_950">#0f172a</color>
+
+    <!--Green-->
+    <color name="green_100">#dcfce7</color>
+    <color name="green_900">#14532d</color>
+    <!--Red-->
+    <color name="red_100">#fee2e2</color>
+    <color name="red_900">#7f1d1d</color>
 </resources>

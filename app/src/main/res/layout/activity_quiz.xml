@@ -17,6 +17,7 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="5dp">
         <TextView
+            android:id="@+id/tvCurrentQstInd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_1"
@@ -24,7 +25,7 @@
             />
 
         <TextView
-            android:id="@+id/tvLogin"
+            android:id="@+id/tvQstCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_5"
@@ -33,6 +34,18 @@
             style="@style/tvQst"
             />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:progressDrawable="@drawable/progress_drawable"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginVertical="10dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
