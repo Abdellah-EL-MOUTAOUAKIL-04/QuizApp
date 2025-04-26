@@ -25,7 +25,7 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blue_950"
         />
     <TextView
         android:id="@+id/tvScore"
@@ -36,13 +36,28 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:textSize="30sp"
-        android:textColor="@color/colorbluegrey"
+        android:textColor="@color/colorPrimaryDark2"
         />
     <ProgressBar
         android:id="@+id/ProgressBarId"
-        style="?android:attr/progressBarStyle"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="10dp"
+        android:progressDrawable="@drawable/progress_drawable"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginVertical="10dp"
+        />
+
+
+    <ListView
+        android:id="@+id/lvTopScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/lvTopScore"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
         />
 
     <LinearLayout
@@ -55,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorbluegrey"
+            android:background="@color/gray_300"
             android:textColor="@color/colorPrimary"
             android:text="Logout" />
 

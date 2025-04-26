@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*String email = etEmail.getText().toString().trim();
+                String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                loginUser(email, password);*/
-                startActivity(new Intent(MainActivity.this, Quiz.class));
+                loginUser(email, password);
+                //startActivity(new Intent(MainActivity.this, Quiz.class));
             }
         });
     }

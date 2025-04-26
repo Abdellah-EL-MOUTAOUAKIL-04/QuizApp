@@ -93,4 +93,10 @@
         <item name="android:button">@null</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="lvTopScore" parent="Widget.AppCompat.ListView">
+        <item name="android:background">@color/gray_50</item>
+        <item name="android:textColor">@color/blue_950</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
 </resources>
