@@ -5,15 +5,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quizapp.entities.Question;
 import com.example.quizapp.utils.RadioGroupUtils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Quiz extends AppCompatActivity {
 
@@ -22,6 +32,7 @@ public class Quiz extends AppCompatActivity {
     RadioButton radio1, radio2, radio3;
     Button btnNext;
     ProgressBar progressBar;
+    ImageView imageViewQst;
 
     CountDownTimer countDownTimer;
     int score = 0;
@@ -30,28 +41,7 @@ public class Quiz extends AppCompatActivity {
     int timeLeft = 10000; // 10s
     int interval = 100;
 
-    // Questions
-    String[] questions = {
-            "What is the capital of France?",
-            "Which language is used in Android?",
-            "2 + 2 = ?",
-            "What color is the sky?",
-            "What is the opposite of 'cold'?"
-    };
-
-    // Choices
-    String[][] choices = {
-            {"Paris", "London", "Berlin"},
-            {"Java", "Python", "C++"},
-            {"3", "4", "5"},
-            {"Blue", "Green", "Red"},
-            {"Hot", "Wet", "Soft"}
-    };
-
-    // Correct answers
-    String[] correctAnswers = {
-            "Paris", "Java", "4", "Blue", "Hot"
-    };
+    List<Question> questionsList = new ArrayList<>(); // Nouvelle liste
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,56 +57,85 @@ public class Quiz extends AppCompatActivity {
         radio3 = findViewById(R.id.radioBtn3);
         btnNext = findViewById(R.id.bNext);
         progressBar = findViewById(R.id.progressBar);
-
-        // Load first question
-        loadQuestion();
-        startTimer();
+        imageViewQst = findViewById(R.id.imageViewQst);
 
         // Setup radio group custom behavior
-        RadioGroupUtils.setupCustomRadioGroup(radioGroup,this);
+        RadioGroupUtils.setupCustomRadioGroup(radioGroup, this);
 
-        // Handle "Next" button click
+        // Load questions from Firestore
+        loadQuestionsFromFirestore();
+
         btnNext.setOnClickListener(v -> {
             if (radioGroup.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Cancel countdown timer for next question
             countDownTimer.cancel();
 
-            // Check selected answer
             RadioButton selected = findViewById(radioGroup.getCheckedRadioButtonId());
             String answer = selected.getText().toString();
+            String correctAnswer = questionsList.get(currentQuestionIndex).getCorrectAnswer();
 
-            // Increment score if correct answer
-            if (answer.equals(correctAnswers[currentQuestionIndex])) {
+            if (answer.equals(correctAnswer)) {
                 RadioGroupUtils.markAnswerCorrect(selected, this);
                 score++;
-            }else{
+            } else {
                 RadioGroupUtils.markAnswerIncorrect(selected, this);
             }
 
-            new android.os.Handler().postDelayed(() -> {
-                // Passer à la question suivante
-                goToNext();
-            }, 500);
+            new android.os.Handler().postDelayed(this::goToNext, 500);
         });
+    }
+
+    private void loadQuestionsFromFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("questions")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (var document : task.getResult()) {
+                                Question question = document.toObject(Question.class);
+                                questionsList.add(question);
+                            }
+                            if (!questionsList.isEmpty()) {
+                                loadQuestion();
+                                startTimer();
+                            } else {
+                                Toast.makeText(Quiz.this, "No questions found", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(Quiz.this, "Failed to load questions", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     @SuppressLint("DefaultLocale")
     private void loadQuestion() {
-        if (currentQuestionIndex < questions.length) {
-            // Update question text
-            tvQuestion.setText(questions[currentQuestionIndex]);
-            // Update choices for the current question
-            radio1.setText(choices[currentQuestionIndex][0]);
-            radio2.setText(choices[currentQuestionIndex][1]);
-            radio3.setText(choices[currentQuestionIndex][2]);
+        if (currentQuestionIndex < questionsList.size()) {
+            Question currentQuestion = questionsList.get(currentQuestionIndex);
+
+            tvQuestion.setText(currentQuestion.getQuestion());
+            tvCurrentQstInd.setText(String.format("Question %d", currentQuestionIndex + 1));
+
+            List<String> choices = currentQuestion.getChoices();
+            if (choices.size() >= 3) {
+                radio1.setText(choices.get(0));
+                radio2.setText(choices.get(1));
+                radio3.setText(choices.get(2));
+            }
+
             radioGroup.clearCheck();
 
-            // Update current question index display
-            tvCurrentQstInd.setText(String.format("Question %d", currentQuestionIndex + 1));
+            String imageName = "q" + (currentQuestionIndex + 1);
+            int imageResId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+
+            if (imageResId != 0) {
+                imageViewQst.setImageResource(imageResId);
+            }
         }
     }
 
@@ -129,7 +148,7 @@ public class Quiz extends AppCompatActivity {
             }
 
             public void onFinish() {
-                goToNext(); // auto next if time is up
+                goToNext();
             }
         }.start();
     }
@@ -137,12 +156,10 @@ public class Quiz extends AppCompatActivity {
     private void goToNext() {
         currentQuestionIndex++;
 
-        if (currentQuestionIndex < questions.length) {
-            // Load next question and restart timer
+        if (currentQuestionIndex < questionsList.size()) {
             loadQuestion();
             startTimer();
         } else {
-            // Go to score activity
             Intent intent = new Intent(Quiz.this, Score.class);
             intent.putExtra("score", score);
             startActivity(intent);

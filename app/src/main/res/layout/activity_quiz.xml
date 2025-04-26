@@ -54,13 +54,12 @@
         style="@style/LLQst">
 
         <ImageView
-            android:id="@+id/imageViewQ1"
+            android:id="@+id/imageViewQst"
             style="@style/ImgQst"
             android:src="@drawable/q1" />
 
         <TextView
             android:id="@+id/TVQst"
-            android:text="@string/q1"
             style="@style/tvQsts"
             />
     </LinearLayout>
@@ -77,21 +76,18 @@
             android:id="@+id/radioBtn1"
             style="@style/RoundedRadioButton"
             android:drawableEnd="@drawable/ic_checked_placeholder"
-            android:text="Radio Button 1"
             android:layout_margin="8dp" />
 
         <RadioButton
             android:id="@+id/radioBtn2"
             style="@style/RoundedRadioButton"
             android:drawableEnd="@drawable/ic_checked_placeholder"
-            android:text="Radio Button 2"
             android:layout_margin="8dp" />
 
         <RadioButton
             android:id="@+id/radioBtn3"
             style="@style/RoundedRadioButton"
             android:drawableEnd="@drawable/ic_checked_placeholder"
-            android:text="Radio Button 3"
             android:layout_margin="8dp" />
     </RadioGroup>
 

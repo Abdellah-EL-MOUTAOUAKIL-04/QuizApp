@@ -35,4 +35,8 @@
     <!--Red-->
     <color name="red_100">#fee2e2</color>
     <color name="red_900">#7f1d1d</color>
+    <!--pb blue-->
+    <!-- Deep Ocean Blue -->
+    <color name="blue_200">#DBF1F8</color>        <!-- Light Aqua Blue -->
+    <color name="blue_600">#0299FD</color>
 </resources>

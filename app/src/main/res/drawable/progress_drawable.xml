@@ -2,7 +2,7 @@
     <!-- Fond du ProgressBar -->
     <item android:id="@android:id/background">
         <shape>
-            <solid android:color="@color/colorAccent" />
+            <solid android:color="@color/blue_200" />
             <corners android:radius="10dp" /> <!-- Ajout des bords arrondis -->
         </shape>
     </item>
@@ -11,7 +11,7 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape>
-                <solid android:color="@color/colorAccent2" />
+                <solid android:color="@color/blue_600" />
                 <corners android:radius="10dp" /> <!-- Ajout des bords arrondis -->
             </shape>
         </clip>
